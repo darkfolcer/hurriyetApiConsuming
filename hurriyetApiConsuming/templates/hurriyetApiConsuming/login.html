@@ -1,0 +1,30 @@
+{% extends 'hurriyetApiConsuming/masterpage.html' %}
+{% load bootstrap %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<center style="margin-top:150px">
+<div class="container">
+	<div class="col-md-4 col-md-offset-4">
+		<section>
+			<div class="panel panel-default top caja">
+			  <div class="panel-body">			    
+			    <form class="login" method="post" action="{% url 'login' %}" id="login-form">{% csrf_token %}
+              <p class="lead">{{ message }}</p>
+			    	<div class="form-group">					 
+					  <input type="text" name="email" id="id_email" class="required form-control" placeholder="email_addr"  required>
+					</div>
+
+					<div class="form-group">					
+					  <input type="password" name="password" id="id_password" class="required form-control" placeholder="pwd" required>
+					</div>
+
+					 <button type="submit" class="btn btn-primary btn-block">login</button>
+					 <br>
+						 <p>New member? <a href="/hurriyetApiConsuming/register">Sign Up</a></p>
+			    </form>
+			  </div>
+			</div>
+		</section>
+	</div>
+{% endblock %}

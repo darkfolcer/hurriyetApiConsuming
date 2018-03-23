@@ -1,0 +1,40 @@
+{% extends 'hurriyetApiConsuming/masterpage.html' %}
+{% load bootstrap %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<p class="lead">Welcome, <a href="preferences">{{username}}</a><p>
+  <p class="lead"></p>
+  
+ <div class="container">
+    <div class="alert alert-info" role="alert">
+         {{ message }}
+      </div><br>
+    <form method="POST">{% csrf_token %}
+    <select class="form-control" name="choices" id="id_category">
+        {% for path in paths  %}
+          <option class="dropdown-item" name="{{path.Title}}" value="{{path.Id }}">{{ path.Title }}</option>
+        {% endfor %}
+      </select><br>
+      <div>
+          <button type="submit" name="add" action="{% url 'preferences' %}"  class="btn btn-success">Add</button>
+          <button type="submit" name="delete" action="{% url 'preferences' %}"  class="btn btn-danger">Delete</button>
+      </div>
+    
+  </form>
+    <br><br>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title" id="panel-başlığı">Preferences<a class="anchorjs-link" href="#panel-başlığı"><span class="anchorjs-icon"></span></a></h3>
+        </div>
+        <div class="panel-body">
+            {% for pref in preferences  %}
+    <p class="btn btn-primary">{{ pref }}&nbsp;</p> 
+        {% endfor %}
+        </div>
+    </div>
+
+    
+  </div> <!-- /container -->
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'hurriyetApiConsuming/masterpage.html' %}
+{% load bootstrap %}
+
+{% block content %}
+<div id="wwwloading"></div>
+  <div class="container">
+    <br>
+    <p class="lead">{{message}}</p>
+    <p class="lead"><strong><a href="account/preferences">[+] add category</a></strong></p>
+    {%for path in userPaths%}
+   <h1>{{path.Title}}</h1> 
+    <div class="row">
+      {%for articles in paths%}
+      {%for article in articles%}
+      <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+            <img class="card-img-top" src="{{article.img}}">         
+          <div class="card-body">
+             <a style="font-size:20px" href="{{article.url}}">{{article.tittle}}</a>
+           
+            <p class="card-text">{{article.description }}</p>
+          <a href="{{article.url}}" >Continue reading >></a>
+          </div>
+        </div>
+      </div>
+      {%endfor%}
+      {%endfor%}
+  </div>
+  {%endfor%}
+  </div>
+{% endblock %}
+
