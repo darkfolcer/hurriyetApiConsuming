@@ -25,11 +25,8 @@ def news(request):
             print (article.tittle)
         
 
-    # for articles in allPaths:
-    #     for art in articles:  
-    #         allArticle.append(getArticle(art.Id))  
-    # if not allArticle:
-    #     _message="Your preferences list currently empty."
+    if not userPaths:
+        _message="Your preferences list currently empty."
 
     context = {'paths': allPaths, 'userPaths': userPaths, 'request' : request, 'message' : _message}
     return render(request,'hurriyetApiConsuming/news.html', context)

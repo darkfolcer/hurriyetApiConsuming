@@ -7,8 +7,6 @@
     <br>
     <p class="lead">{{message}}</p>
     <p class="lead"><strong><a href="account/preferences">[+] add category</a></strong></p>
-    {%for path in userPaths%}
-   <h1>{{path.Title}}</h1> 
     <div class="row">
       {%for articles in paths%}
       {%for article in articles%}
@@ -26,7 +24,7 @@
       {%endfor%}
       {%endfor%}
   </div>
-  {%endfor%}
+
   </div>
 {% endblock %}
 
